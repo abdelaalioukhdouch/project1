@@ -402,23 +402,24 @@ print('Accuracy:', round(accuracy_score(y_test, y_pred),2))
 
 On va maintenant utiliser la variable "importance des caractéristiques" pour afficher les scores d'importance des variables explicatives et les visualizer dans un graphique à barres horizontales :
 """
-
 # visualiser les scores des caractéristiques
 feature_scores = pd.Series(rfc.feature_importances_, index=features).sort_values(ascending=False)
 
-# Créer d'un diagramme à barres
-plt.figure(figsize=(12,10))
-sns.barplot(x=feature_scores, y=feature_scores.index)
 
-# Ajouter des étiquettes au graphique
-plt.xlabel('Feature Importance Score')
-plt.ylabel('Features')
+def score():
+    # Créer d'un diagramme à barres
+    plt.figure(figsize=(12,10))
+    sns.barplot(x=feature_scores, y=feature_scores.index)
 
-# Ajouter un titre au graphique
-plt.title("Variables les plus importantes de la Forêt Aléatoire", fontsize=15, fontweight='bold')
+    # Ajouter des étiquettes au graphique
+    plt.xlabel('Feature Importance Score')
+    plt.ylabel('Features')
 
-# Visualize the graph
-#plt.show()
+    # Ajouter un titre au graphique
+    plt.title("Variables les plus importantes de la Forêt Aléatoire", fontsize=15, fontweight='bold')
+
+    # Visualize the graph
+    #plt.show()
 
 """**Nous allons maintenant voir si notre modèle s'amèlieure encore plus si on garde que les variables qui nous sont vraiment intéressantes pour le modèle**, on va dire les 28 variables dont le feature_scores est visible sur le graphique ci-dessus :"""
 
@@ -457,11 +458,12 @@ labels = [1, 2, 3, 4, 5]
 # Créer une matrice de confusion
 cm = confusion_matrix(y_test, y_pred, labels=labels)
 
-# Visualiser matrice de confusion
-cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
-cm_display.plot()
-plt.title("Matrice de confusion du modèle de Forêt Aléatoire", fontweight='bold')
-#plt.show()
+def  matrice_confusion():
+    # Visualiser matrice de confusion
+    cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
+    cm_display.plot()
+    plt.title("Matrice de confusion du modèle de Forêt Aléatoire", fontweight='bold')
+    #plt.show()
 
 """# Conclusion
 
@@ -486,6 +488,13 @@ plt.savefig('static/scree_plot.png')
 
 arbre()
 plt.savefig('static/arbre.png')
+
+score()
+plt.savefig('static/score.png')
+
+matrice_confusion()
+plt.savefig('static/confusion_matrix.png')
+
 
 correlation_graph(pca, [0, 1], features)
 plt.savefig('static/correlation_plot.png')

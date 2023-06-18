@@ -1,10 +1,21 @@
+
 <!DOCTYPE html>
 <html>
   <head>
         <title>Graphs</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <style>
 
         /* Styles spécifiques au header */
+        div{
+            margin-top: 1rem;
+        }
+        .card{
+            margin-left: 0.6rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display:flex;    width: 98%;
+            justify-content: center;
+        }
         header {
             background-color: #333;
             padding: 20px;
@@ -13,6 +24,10 @@
 
         h1 {
             margin: 0;
+        }
+
+        h2 {
+            font-size: 0.5rem;
         }
 
 
@@ -39,24 +54,43 @@
 <body>
     <h1>Graphs</h1>
     <h2>Bar Graph</h2>
-    <div style="display:flex">
+    <div class="card" style="display:flex">
         <img style="width: 33%; height: 50%;" src="{{ url_for('static', filename='bar_type.png') }}" alt="Bar Graph">
         <img style="width: 33%; height: 50%;" src="{{ url_for('static', filename='bar_washing.png') }}" alt="Bar Graph">
         <img style="width: 33%; height: 50%;" src="{{ url_for('static', filename='bar_drying.png') }}" alt="Bar Graph">
     </div>
 
-    <h2>Distribution du label EI</h2>
-    <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='pie_chart.png') }}" alt="Box Plot">
+    <div>
+        <h2>Distribution du label EI</h2>
+        <img class="card" style="width: 40%; height: 50%;" src="{{ url_for('static', filename='pie.png') }}" alt="Box Plot">
+    </div>
 
+    <div class="card">
+        <h2>Matrice de correlation</h2>
+        <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='cor_matrix.png') }}" alt="Box Plot">
 
-    <h2>Box Plot</h2>
-    <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='boxplot_category.png') }}" alt="Box Plot">
+        <h2>Visualiser l'arbre de decision</h2>
+        <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='arbre.png') }}" alt="Scatter Plot">
+    </div>
 
-    <h2>Correlation graph</h2>
-    <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='cor.png') }}" alt="Scatter Plot">
+    <div class="card">
+        <h2>le graphe des correlations</h2>
+        <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='correlation_plot.png') }}" alt="Explained Variance Ratio">
 
-    <h2>Explained Variance Ratio</h2>
-    <img src="{{ url_for('static', filename='explained_variance.png') }}" alt="Explained Variance Ratio">
+        <h2>Diagramme à barres</h2>
+        <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='score.png') }}" alt="Explained Variance Ratio">
+
+    </div>
+
+    <div class="card">
+        <h2>Visualiser matrice de confusion</h2>
+        <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='confusion_matrix.png') }}" alt="Explained Variance Ratio">
+
+        <h2></h2>
+        <img style="width: 40%; height: 50%;">
+
+    </div>
+
 </body>
 
  <footer>
