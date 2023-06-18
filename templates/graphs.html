@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title>Graphs</title>
+        <style>
+
+        /* Styles spécifiques au header */
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+
+        /* Styles spécifiques au footer */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Styles généraux */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    </head>
+
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+<body>
+    <h1>Graphs</h1>
+    <h2>Bar Graph</h2>
+    <div style="display:flex">
+        <img style="width: 33%; height: 50%;" src="{{ url_for('static', filename='bar_type.png') }}" alt="Bar Graph">
+        <img style="width: 33%; height: 50%;" src="{{ url_for('static', filename='bar_washing.png') }}" alt="Bar Graph">
+        <img style="width: 33%; height: 50%;" src="{{ url_for('static', filename='bar_drying.png') }}" alt="Bar Graph">
+    </div>
+
+    <h2>Distribution du label EI</h2>
+    <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='pie_chart.png') }}" alt="Box Plot">
+
+
+    <h2>Box Plot</h2>
+    <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='boxplot_category.png') }}" alt="Box Plot">
+
+    <h2>Correlation graph</h2>
+    <img style="width: 40%; height: 50%;" src="{{ url_for('static', filename='cor.png') }}" alt="Scatter Plot">
+
+    <h2>Explained Variance Ratio</h2>
+    <img src="{{ url_for('static', filename='explained_variance.png') }}" alt="Explained Variance Ratio">
+</body>
+
+ <footer>
+    <p>© 2023 Mon site web. Tous droits réservés.</p>
+</footer>
+
+</html>
